@@ -205,11 +205,37 @@ def intent_received(hermes, intent_message):
             sentence = u"Je n'ai pas trouvé. Désolé."
 
         else:
+         
             if weather_forecast["now"]:
 
+                if weather_forecast["mainCondition"] is not None:
+                    
+                    if weather_forecast["mainCondition"] == "clear":
+                        
+                        sentence += u"Il fait beau "
+                        
+                    elif weather_forecast["mainCondition"] == "clouds":
+                        
+                        sentence += u"Le temps est nuageux "
 
-                sentence = u"il fait {0} degrés".format(weather_forecast["temperature"])
+                    elif weather_forecast["mainCondition"] == "rain":
+                        
+                        sentence += u"Il pleut "
+
+                    elif weather_forecast["mainCondition"] == "drizzle":
+                        
+                        sentence += u"Il y a un peu de pluie "
+
+                    elif weather_forecast["mainCondition"] == "snow":
+                        
+                        sentence += u"Il neige "
+
+                    sentence += "et "
+
+                sentence += u"il fait {0} degrés".format(weather_forecast["temperature"])
+                
                 if not weather_forecast["here"]:
+                    
                     sentence += u"{0}".format(weather_forecast["inLocation"])
 
                 sentence += "."
@@ -217,6 +243,30 @@ def intent_received(hermes, intent_message):
             else:
 
                 sentence = slots.forecast_start_datetime[0].raw_value
+
+                if weather_forecast["mainCondition"] is not None:
+                    
+                    if weather_forecast["mainCondition"] == "clear":
+                        
+                        sentence += u"Il fera beau "
+                        
+                    elif weather_forecast["mainCondition"] == "clouds":
+                        
+                        sentence += u" le temps sera nuageux "
+
+                    elif weather_forecast["mainCondition"] == "rain":
+                        
+                        sentence += u" il va pleuvoir "
+
+                    elif weather_forecast["mainCondition"] == "drizzle":
+                        
+                        sentence += u" il y aura un peu de pluie "
+
+                    elif weather_forecast["mainCondition"] == "snow":
+                        
+                        sentence += u" il va neiger "
+
+                    sentence += "et "
 
                 sentence += u", il va faire entre {0} et {1} degrés".format(
                     weather_forecast["temperatureMin"], 
@@ -228,8 +278,8 @@ def intent_received(hermes, intent_message):
 
                 sentence += "."
 
-                if weather_forecast["rainTime"] and not weather_forecast["moreThanADay"]:
-                    sentence += u" Il risque de pleuvoir à {0}.".format(verbalise_hour(weather_forecast["rainTime"]))
+                #if weather_forecast["rainTime"] and not weather_forecast["moreThanADay"]:
+                #   sentence += u" Il risque de pleuvoir à {0}.".format(verbalise_hour(weather_forecast["rainTime"]))
 
         hermes.publish_end_session(intent_message.session_id, sentence)
 
