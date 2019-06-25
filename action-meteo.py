@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # coding: utf-8
 
-import configparser
+import ConfigParser
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
 import io
@@ -56,7 +56,7 @@ def remove_intent_prefix(full_intent_name):
         return full_intent_name
 
 
-class SnipsConfigParser(configparser.SafeConfigParser):
+class SnipsConfigParser(ConfigParser.SafeConfigParser):
     def to_dict(self):
         return {section : {option_name : option for option_name, option in self.items(section)} for section in self.sections()}
 
