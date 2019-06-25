@@ -106,7 +106,7 @@ def parse_open_weather_map_forecast_response(response, location, time, conf):
     more_than_a_day = False
     here = (location == conf.get("default_city"))
 
-    if isinstance(time, TimeIntervalValue):
+    if isinstance(time, dialogue.slot.TimeIntervalValue):
 
         from_date = dateutil.parser.parse(time.from_date)
         to_date = dateutil.parser.parse(time.to_date)
@@ -123,7 +123,7 @@ def parse_open_weather_map_forecast_response(response, location, time, conf):
         contains_now = (from_date <= pytz.utc.localize(datetime.datetime.utcnow()))
 
 
-    elif isinstance(time, InstantTimeValue):
+    elif isinstance(time, dialogue.slot.InstantTimeValue):
 
         if time.grain >= 5:
             # Seconds, Minutes or Hours
