@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-# coding: utf-8
+# coding: utf8
 
 import ConfigParser
 from hermes_python.hermes import Hermes
@@ -196,17 +196,16 @@ def intent_received(hermes, intent_message):
 
         slots = intent_message.slots
 
-        print (intent_message)
 
         weather_forecast = get_weather_forecast(conf, slots)
 
         if weather_forecast is None:
-            sentence = "Je n'ai pas trouvé, désolé."
+            sentence = "Je ne trouve pas."
 
         else:
             if weather_forecast["now"]:
 
-                sentence = "Il fait {0}".format(weather_forecast["temperature"])
+                sentence = "Il fait {0} degrés".format(weather_forecast["temperature"])
                 if not weather_forecast["here"]:
                     sentence += weather_forecast["inLocation"]
 
@@ -219,7 +218,7 @@ def intent_received(hermes, intent_message):
 
                 sentence = slots.forecast_start_datetime[0].raw_value
 
-                sentence += (", il va faire entre {0} et {1} units de temperature").format(
+                sentence += (", il va faire entre {0} et {1} degrés").format(
                     weather_forecast["temperatureMin"], 
                     weather_forecast["temperatureMax"]
                 )
