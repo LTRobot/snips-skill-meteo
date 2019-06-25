@@ -205,7 +205,7 @@ def intent_received(hermes, intent_message):
         else:
             if weather_forecast["now"]:
 
-                print(weacher_forecast["mainCondition"])
+                print(weather_forecast["mainCondition"])
 
                 sentence = u"il fait {0} degrés".format(weather_forecast["temperature"])
                 if not weather_forecast["here"]:
