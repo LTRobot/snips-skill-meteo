@@ -195,6 +195,8 @@ def intent_received(hermes, intent_message):
 
 
         slots = intent_message.slots
+
+        print (slots)
         weather_forecast = get_weather_forecast(conf, slots)
 
         if weather_forecast is None:
