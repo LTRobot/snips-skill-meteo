@@ -1,7 +1,8 @@
 #!/usr/bin/env python2
-# coding: utf8
+# coding: utf-8
 
 import ConfigParser
+from __future__ import unicode_literals
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
 import io
