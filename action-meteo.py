@@ -178,7 +178,7 @@ def parse_open_weather_map_forecast_response(response, location, time, conf):
         "containsNow": contains_now,
         "here": here,
         "moreThanADay": more_than_a_day,
-        "inLocation": " à {0}".format(location) if location else "",         
+        u"inLocation": " à {0}".format(location) if location else "",         
         "temperature": int(target_period_forecasts[0]["main"]["temp"]),
         "temperatureMin": int(min(all_min)),
         "temperatureMax": int(max(all_max)),
@@ -200,14 +200,14 @@ def intent_received(hermes, intent_message):
         weather_forecast = get_weather_forecast(conf, slots)
 
         if weather_forecast is None:
-            sentence = "Je ne trouve pas."
+            sentence = u"Je n'ai pas trouvé. Désolé"
 
         else:
             if weather_forecast["now"]:
 
                 sentence = u"Il fait {0} degrés".format(weather_forecast["temperature"])
                 if not weather_forecast["here"]:
-                    sentence += weather_forecast["inLocation"]
+                    sentence += u"{0}".format(weather_forecast["inLocation"])
 
                 sentence += "."
 
@@ -224,7 +224,7 @@ def intent_received(hermes, intent_message):
                 )
 
                 if not weather_forecast["here"]:
-                    sentence += weather_forecast["inLocation"]
+                    sentence += u"{0}".format(weather_forecast["inLocation"])
 
                 sentence += "."
 
