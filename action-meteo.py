@@ -196,7 +196,7 @@ def intent_received(hermes, intent_message):
 
         slots = intent_message.slots
 
-        print (json.dumps(slots, indent=4, sort_keys=True))
+        print (intent_message)
 
         weather_forecast = get_weather_forecast(conf, slots)
 
