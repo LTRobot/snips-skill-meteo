@@ -196,7 +196,7 @@ def intent_received(hermes, intent_message):
 
         slots = intent_message.slots
 
-
+        sentence = ""
         weather_forecast = get_weather_forecast(conf, slots)
 
         print(weather_forecast["mainCondition"])
@@ -206,9 +206,13 @@ def intent_received(hermes, intent_message):
 
         else:
 
-            sentence = "En ce moment, "
-         
             if weather_forecast["now"]:
+
+                sentence = "En ce moment, "
+         
+                if not weather_forecast["here"]:
+
+                    sentence += u"à {0},".format(weather_forecast["inLocation"].encorde("utf-8"))
 
                 if weather_forecast["mainCondition"] is not None:
                     
@@ -234,9 +238,6 @@ def intent_received(hermes, intent_message):
 
                 sentence += u" il fait {0} degrés".format(weather_forecast["temperature"])
                 
-                if not weather_forecast["here"]:
-                    
-                    sentence += u"{0}".format(weather_forecast["inLocation"])
 
                 sentence += "."
 
@@ -245,6 +246,10 @@ def intent_received(hermes, intent_message):
             else:
 
                 sentence = slots.forecast_start_datetime[0].raw_value
+
+                if not weather_forecast["here"]:
+
+                    sentence += u", à {0},".format(weather_forecast["inLocation"].encorde("utf-8"))
 
                 if weather_forecast["mainCondition"] is not None:
                     
@@ -272,9 +277,6 @@ def intent_received(hermes, intent_message):
                     weather_forecast["temperatureMin"], 
                     weather_forecast["temperatureMax"]
                 )
-
-                if not weather_forecast["here"]:
-                    sentence += u"{0}".format(weather_forecast["inLocation"])
 
                 sentence += "."
 
