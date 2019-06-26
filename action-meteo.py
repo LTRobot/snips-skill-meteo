@@ -239,9 +239,6 @@ def intent_received(hermes, intent_message):
                 sentence += "."
 
 
-            sentence_u = sentence.encode("utf-8") 
-            print(sentence_u)
-
 
             else:
 
