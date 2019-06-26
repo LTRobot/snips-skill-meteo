@@ -212,29 +212,29 @@ def intent_received(hermes, intent_message):
          
                 if not weather_forecast["here"]:
 
-                    sentence += u"{0},".format(weather_forecast["inLocation"].decode("utf-8"))
+                    sentence += u"{0}, ".format(weather_forecast["inLocation"].decode("utf-8"))
 
                 if weather_forecast["mainCondition"] is not None:
                     
                     if weather_forecast["mainCondition"] == "clear":
                         
-                        sentence += u"Il fait beau, et"
+                        sentence += u"il fait beau, et"
                         
                     elif weather_forecast["mainCondition"] == "clouds":
                         
-                        sentence += u"Le temps est nuageux, et"
+                        sentence += u"le temps est nuageux, et"
 
                     elif weather_forecast["mainCondition"] == "rain":
                         
-                        sentence += u"Il pleut, et"
+                        sentence += u"il pleut, et"
 
                     elif weather_forecast["mainCondition"] == "drizzle":
                         
-                        sentence += u"Il y a un peu de pluie, et"
+                        sentence += u"il y a un peu de pluie, et"
 
                     elif weather_forecast["mainCondition"] == "snow":
                         
-                        sentence += u"Il neige, et"
+                        sentence += u"il neige, et"
 
                 sentence += u" il fait {0} degrés".format(weather_forecast["temperature"])
                 
