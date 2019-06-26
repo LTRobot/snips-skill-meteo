@@ -248,25 +248,23 @@ def intent_received(hermes, intent_message):
                     
                     if weather_forecast["mainCondition"] == "clear":
                         
-                        sentence += u"Il fera beau "
+                        sentence += u"Il fera beau et "
                         
                     elif weather_forecast["mainCondition"] == "clouds":
                         
-                        sentence += u" le temps sera nuageux "
+                        sentence += u"Le temps sera nuageux et "
 
                     elif weather_forecast["mainCondition"] == "rain":
                         
-                        sentence += u" il va pleuvoir "
+                        sentence += u"Il va pleuvoir et "
 
                     elif weather_forecast["mainCondition"] == "drizzle":
                         
-                        sentence += u" il y aura un peu de pluie "
+                        sentence += u"Il y aura un peu de pluie et "
 
                     elif weather_forecast["mainCondition"] == "snow":
                         
-                        sentence += u" il va neiger "
-
-                    sentence += u" et "
+                        sentence += u"Il va neiger et "
 
                 sentence += u", il va faire entre {0} et {1} degrés".format(
                     weather_forecast["temperatureMin"], 
