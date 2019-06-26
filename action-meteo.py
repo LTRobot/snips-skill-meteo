@@ -278,7 +278,6 @@ def intent_received(hermes, intent_message):
 
                 sentence += "."
                 
-                print(sentence.decode("utf-8"))
                 #if weather_forecast["rainTime"] and not weather_forecast["moreThanADay"]:
                 #   sentence += u" Il risque de pleuvoir à {0}.".format(verbalise_hour(weather_forecast["rainTime"]))
 
