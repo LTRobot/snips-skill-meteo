@@ -232,7 +232,7 @@ def intent_received(hermes, intent_message):
                         
                         sentence += u"Il neige, et"
 
-                sentence += u", il fait {0} degrés".format(weather_forecast["temperature"])
+                sentence += u" il fait {0} degrés".format(weather_forecast["temperature"])
                 
                 if not weather_forecast["here"]:
                     
@@ -268,7 +268,7 @@ def intent_received(hermes, intent_message):
                         
                         sentence += u" il va neiger, et"
 
-                sentence += u", il va faire entre {0} et {1} degrés".format(
+                sentence += u" il va faire entre {0} et {1} degrés".format(
                     weather_forecast["temperatureMin"], 
                     weather_forecast["temperatureMax"]
                 )
