@@ -199,8 +199,6 @@ def intent_received(hermes, intent_message):
         sentence = ""
         weather_forecast = get_weather_forecast(conf, slots)
 
-        print(weather_forecast["mainCondition"])
-        
         if weather_forecast is None:
             sentence = u"Je n'ai pas trouvé. Désolé."
 
@@ -255,23 +253,23 @@ def intent_received(hermes, intent_message):
                     
                     if weather_forecast["mainCondition"] == "clear":
                         
-                        sentence += u" il fera beau, et"
+                        sentence += u" il fera beau, "
                         
                     elif weather_forecast["mainCondition"] == "clouds":
                         
-                        sentence += u" le temps sera nuageux, et"
+                        sentence += u" le temps sera nuageux, "
 
                     elif weather_forecast["mainCondition"] == "rain":
                         
-                        sentence += u" il va pleuvoir, et"
+                        sentence += u" il va pleuvoir, "
 
                     elif weather_forecast["mainCondition"] == "drizzle":
                         
-                        sentence += u" il y aura un peu de pluie, et"
+                        sentence += u" il y aura un peu de pluie, "
 
                     elif weather_forecast["mainCondition"] == "snow":
                         
-                        sentence += u" il va neiger, et"
+                        sentence += u" il va neiger, "
 
                 sentence += u" il va faire {0} degrés le matin et {1} degrés l'après-midi".format(
                     weather_forecast["temperatureMin"], 
