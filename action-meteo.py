@@ -212,7 +212,7 @@ def intent_received(hermes, intent_message):
          
                 if not weather_forecast["here"]:
 
-                    sentence += u"à {0},".format(weather_forecast["inLocation"].decode("utf-8"))
+                    sentence += u"{0},".format(weather_forecast["inLocation"].decode("utf-8"))
 
                 if weather_forecast["mainCondition"] is not None:
                     
@@ -249,7 +249,7 @@ def intent_received(hermes, intent_message):
 
                 if not weather_forecast["here"]:
 
-                    sentence += u", à {0},".format(weather_forecast["inLocation"].decode("utf-8"))
+                    sentence += u"{0},".format(weather_forecast["inLocation"].decode("utf-8"))
 
                 if weather_forecast["mainCondition"] is not None:
                     
