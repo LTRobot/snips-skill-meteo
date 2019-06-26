@@ -274,7 +274,7 @@ def intent_received(hermes, intent_message):
 
                 sentence += "."
 
-        sentence_u = sentence.decode("utf-8") 
+        sentence_u = sentence.encode("utf-8") 
         print(sentence_u)
 
         hermes.publish_end_session(intent_message.session_id, sentence)
