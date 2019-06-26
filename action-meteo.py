@@ -212,25 +212,25 @@ def intent_received(hermes, intent_message):
                     
                     if weather_forecast["mainCondition"] == "clear":
                         
-                        sentence += u"Il fait beau et "
+                        sentence += u"Il fait beau, et"
                         
                     elif weather_forecast["mainCondition"] == "clouds":
                         
-                        sentence += u"Le temps est nuageux et "
+                        sentence += u"Le temps est nuageux, et"
 
                     elif weather_forecast["mainCondition"] == "rain":
                         
-                        sentence += u"Il pleut et "
+                        sentence += u"Il pleut, et"
 
                     elif weather_forecast["mainCondition"] == "drizzle":
                         
-                        sentence += u"Il y a un peu de pluie et "
+                        sentence += u"Il y a un peu de pluie, et"
 
                     elif weather_forecast["mainCondition"] == "snow":
                         
-                        sentence += u"Il neige et "
+                        sentence += u"Il neige, et"
 
-                sentence += u"il fait {0} degrés".format(weather_forecast["temperature"])
+                sentence += u", il fait {0} degrés".format(weather_forecast["temperature"])
                 
                 if not weather_forecast["here"]:
                     
@@ -246,23 +246,23 @@ def intent_received(hermes, intent_message):
                     
                     if weather_forecast["mainCondition"] == "clear":
                         
-                        sentence += u" il fera beau et "
+                        sentence += u" il fera beau, et"
                         
                     elif weather_forecast["mainCondition"] == "clouds":
                         
-                        sentence += u" le temps sera nuageux et "
+                        sentence += u" le temps sera nuageux, et"
 
                     elif weather_forecast["mainCondition"] == "rain":
                         
-                        sentence += u" il va pleuvoir et "
+                        sentence += u" il va pleuvoir, et"
 
                     elif weather_forecast["mainCondition"] == "drizzle":
                         
-                        sentence += u" il y aura un peu de pluie et "
+                        sentence += u" il y aura un peu de pluie, et"
 
                     elif weather_forecast["mainCondition"] == "snow":
                         
-                        sentence += u"i l va neiger et "
+                        sentence += u" il va neiger, et"
 
                 sentence += u", il va faire entre {0} et {1} degrés".format(
                     weather_forecast["temperatureMin"], 
