@@ -200,11 +200,13 @@ def intent_received(hermes, intent_message):
         weather_forecast = get_weather_forecast(conf, slots)
 
         print(weather_forecast["mainCondition"])
-
+        
         if weather_forecast is None:
             sentence = u"Je n'ai pas trouvé. Désolé."
 
         else:
+
+            sentence = "En ce moment, "
          
             if weather_forecast["now"]:
 
